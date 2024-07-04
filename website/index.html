@@ -40,7 +40,7 @@
     <h2 class="reviews-form-title">Reviews</h2>
 
     <div class="reviews-container">
-      <form action="" class="reviews-form">
+      <form class="reviews-form">
         <textarea
           class="review-text-input"
           placeholder="Add review..."
@@ -61,22 +61,13 @@
         <button type="submit" class="review-post-btn">Post</button>
       </form>
 
-      <div class="reviews">
-        <template class="review-template">
-          <div class="review-container">
-            <p class="review-text"></p>
-            <p class="review-rating"></p>
-          </div>
-        </template>
-
+      <template data-review-template>
         <div class="review-container">
-          <p class="review-text">
-            Cool, cool, cool, cool, cool, cool, cool, cool, cool, cool, cool,
-            cool, cool, cool, cool, cool
-          </p>
-          <p class="review-rating">5/5</p>
+          <p class="review-text"></p>
+          <p class="review-rating"></p>
         </div>
-      </div>
+      </template>
+      <div class="reviews"></div>
     </div>
   </body>
 </html>

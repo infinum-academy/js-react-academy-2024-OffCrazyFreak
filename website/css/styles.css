@@ -95,6 +95,8 @@ h2 {
 }
 
 .review-container {
+  margin-block: 1em;
+
   display: flex;
   flex-direction: column;
   gap: 2em;
