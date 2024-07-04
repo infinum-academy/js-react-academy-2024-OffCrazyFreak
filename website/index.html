@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TV shows APP</title>
+  </head>
+  <body>
+    <h1>TV shows APP</h1>
+
+    <div class="show-container">
+      <img
+        src="./img/brooklyn-nine-nine.jpg"
+        alt="Show thumbnail"
+        class="show-thumbnail"
+      />
+
+      <div class="show-text">
+        <h2 class="show-title">Brooklyn Nine-Nine</h2>
+        <p class="show-desc">
+          Comedy series following the expoints of Det. Jake Peralta and his
+          diverse, lovable colleagues as they police the NYPD's 99th Precinct
+        </p>
+      </div>
+    </div>
+
+    <div class="reviews-form-container">
+      <h2 class="reviews-form-title">Reviews</h2>
+
+      <form action="" class="reviews-form">
+        <input
+          type="text"
+          class="review-text-input"
+          placeholder="Add review..."
+          required
+        />
+        <input
+          type="number"
+          class="review-rating-input"
+          min="1"
+          max="5"
+          step="1"
+          placeholder="Add rating..."
+          required
+        />
+
+        <button type="submit" class="review-post-btn">Post</button>
+      </form>
+    </div>
+
+    <div class="reviews-container">
+      <template class="review-template">
+        <p class="review-text"></p>
+        <p class="review-rating"></p>
+      </template>
+    </div>
+  </body>
+</html>
