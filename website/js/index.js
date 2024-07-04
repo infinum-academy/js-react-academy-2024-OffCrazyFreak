@@ -1,11 +1,3 @@
-const reviews = [
-  {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel placerat magna. Etiam congue facilisis dui id sagittis. Quisque ornare leo ac ipsum consectetur, et condimentum ipsum cursus. Sed at molestie lectus. Curabitur volutpat at erat sed placerat. Duis ac pharetra tellus. Duis consequat ornare tincidunt.",
-    rating: "5",
-  },
-  { text: "blabla", rating: "1" },
-];
-
 const form = document.querySelector(".reviews-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from submitting in the traditional way
@@ -19,6 +11,7 @@ form.addEventListener("submit", (event) => {
   };
 
   reviews.push(newReview);
+  reviews = localStorage.setItem("reviews", JSON.stringify(reviews));
 
   form.reset();
 
@@ -40,6 +33,9 @@ function displayReview(review, index) {
   const deleteButton = reviewElement.querySelector(".review-delete-btn");
   deleteButton.addEventListener("click", () => {
     reviews.splice(index, 1);
+
+    reviews = localStorage.setItem("reviews", JSON.stringify(reviews));
+
     renderReviews();
   });
 
@@ -49,9 +45,12 @@ function displayReview(review, index) {
 function renderReviews() {
   reviewsElement.innerHTML = "";
 
+  reviews = JSON.parse(localStorage.getItem("reviews"));
+
   reviews.forEach((review, index) => {
     displayReview(review, index);
   });
 }
 
+let reviews;
 renderReviews();
