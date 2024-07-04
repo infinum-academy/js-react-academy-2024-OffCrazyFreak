@@ -10,8 +10,10 @@ form.addEventListener("submit", (event) => {
     rating: ratingInput.value,
   };
 
+  console.log(reviews);
+
   reviews.push(newReview);
-  reviews = localStorage.setItem("reviews", JSON.stringify(reviews));
+  localStorage.setItem("reviews", JSON.stringify(reviews));
 
   form.reset();
 
@@ -34,7 +36,7 @@ function displayReview(review, index) {
   deleteButton.addEventListener("click", () => {
     reviews.splice(index, 1);
 
-    reviews = localStorage.setItem("reviews", JSON.stringify(reviews));
+    localStorage.setItem("reviews", JSON.stringify(reviews));
 
     renderReviews();
   });
@@ -45,12 +47,13 @@ function displayReview(review, index) {
 function renderReviews() {
   reviewsElement.innerHTML = "";
 
-  reviews = JSON.parse(localStorage.getItem("reviews"));
+  reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
-  reviews.forEach((review, index) => {
+  reviews?.forEach((review, index) => {
     displayReview(review, index);
   });
 }
 
-let reviews;
+let reviews = [];
+
 renderReviews();
