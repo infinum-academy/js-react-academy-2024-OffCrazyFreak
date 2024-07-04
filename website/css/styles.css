@@ -52,7 +52,7 @@ h2 {
   width: 100%;
   height: min(50vw, 30em);
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
 }
 
 .show-text {
