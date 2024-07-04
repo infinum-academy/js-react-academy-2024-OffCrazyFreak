@@ -21,8 +21,10 @@ body {
 
   position: relative;
 
+  margin: 0 auto;
   padding-inline: min(5%, 5rem);
   width: 100%;
+  max-width: 100rem;
 
   font-size: min(3.5vw, 1em);
 
@@ -48,7 +50,7 @@ h2 {
 
 .show-thumbnail {
   width: 100%;
-  height: min(50vw, 60em);
+  height: min(50vw, 30em);
   object-fit: cover;
   object-position: center top;
 }
