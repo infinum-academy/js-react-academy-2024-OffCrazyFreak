@@ -1,0 +1,105 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+
+  height: 100%;
+}
+
+body {
+  /* so the footer sticks to the bottom of page with margin-top: auto; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+
+  font-family: Roboto, sans-serif;
+
+  position: relative;
+
+  padding-inline: min(5%, 5rem);
+  width: 100%;
+
+  font-size: min(3.5vw, 1em);
+
+  color: #333;
+}
+
+h1 {
+  margin: 0;
+}
+
+h1,
+h2 {
+  padding-block: 1em;
+}
+
+.show-container {
+  border-radius: 1em;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.show-thumbnail {
+  width: 100%;
+  height: min(50vw, 60em);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.show-text {
+  padding: 2em;
+
+  background-color: whitesmoke;
+  color: inherit;
+}
+
+.reviews-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.reviews-form > * {
+  border-radius: 1em;
+  padding: 0.75em;
+}
+
+.review-post-btn {
+  width: max-content;
+  margin: auto;
+
+  padding-inline: 2em;
+
+  font-weight: bold;
+  text-transform: uppercase;
+
+  border: none;
+
+  background-color: #333;
+  color: white;
+
+  cursor: pointer;
+}
+
+.reviews {
+  margin-block: 2em;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+  border-radius: 1em;
+  padding: 2em;
+
+  background-color: whitesmoke;
+  color: inherit;
+}

@@ -3,10 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="revisit-after" content="10 days" />
+
+    <meta name="author" content="BEST Zagreb IT WG" />
+    <meta name="copyright" content="BEST Zagreb" />
+
+    <link rel="icon" href="./favicon.ico" />
+
     <title>TV shows APP</title>
+
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="js/index.js" defer></script>
   </head>
   <body>
-    <h1>TV shows APP</h1>
+    <h1 class="app-name">TV shows APP</h1>
 
     <div class="show-container">
       <img
@@ -24,35 +37,46 @@
       </div>
     </div>
 
-    <div class="reviews-form-container">
-      <h2 class="reviews-form-title">Reviews</h2>
+    <h2 class="reviews-form-title">Reviews</h2>
 
+    <div class="reviews-container">
       <form action="" class="reviews-form">
-        <input
-          type="text"
+        <textarea
           class="review-text-input"
           placeholder="Add review..."
+          rows="5"
           required
-        />
+        ></textarea>
+
         <input
           type="number"
           class="review-rating-input"
           min="1"
           max="5"
           step="1"
-          placeholder="Add rating..."
+          placeholder="Add rating (1-5)..."
           required
         />
 
         <button type="submit" class="review-post-btn">Post</button>
       </form>
-    </div>
 
-    <div class="reviews-container">
-      <template class="review-template">
-        <p class="review-text"></p>
-        <p class="review-rating"></p>
-      </template>
+      <div class="reviews">
+        <template class="review-template">
+          <div class="review-container">
+            <p class="review-text"></p>
+            <p class="review-rating"></p>
+          </div>
+        </template>
+
+        <div class="review-container">
+          <p class="review-text">
+            Cool, cool, cool, cool, cool, cool, cool, cool, cool, cool, cool,
+            cool, cool, cool, cool, cool
+          </p>
+          <p class="review-rating">5/5</p>
+        </div>
+      </div>
     </div>
   </body>
 </html>
