@@ -10,8 +10,6 @@ form.addEventListener("submit", (event) => {
     rating: ratingInput.value,
   };
 
-  console.log(reviews);
-
   reviews.push(newReview);
   localStorage.setItem("reviews", JSON.stringify(reviews));
 
@@ -49,9 +47,22 @@ function renderReviews() {
 
   reviews = JSON.parse(localStorage.getItem("reviews")) || [];
 
+  let reviewsRatingSum = 0;
+
   reviews?.forEach((review, index) => {
+    reviewsRatingSum += +review.rating;
     displayReview(review, index);
   });
+
+  const showAverageRatingElement = document.querySelector(
+    ".show-average-rating"
+  );
+  if (reviews.length > 0) {
+    const showAverageRating = reviewsRatingSum / reviews.length;
+    showAverageRatingElement.textContent = "Rating: " + showAverageRating;
+  } else {
+    showAverageRatingElement.textContent = "No ratings yet...";
+  }
 }
 
 let reviews = [];
