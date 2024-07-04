@@ -107,3 +107,22 @@ h2 {
   background-color: whitesmoke;
   color: inherit;
 }
+
+.review-delete-btn {
+  width: max-content;
+  margin-left: auto;
+
+  border-radius: 1em;
+  padding-block: 0.75em;
+  padding-inline: 2em;
+
+  font-weight: bold;
+  text-transform: uppercase;
+
+  border: none;
+
+  background-color: red;
+  color: white;
+
+  cursor: pointer;
+}

@@ -27,7 +27,7 @@ form.addEventListener("submit", (event) => {
 
 const reviewsElement = document.querySelector(".reviews");
 
-function displayReview(review) {
+function displayReview(review, index) {
   const reviewTemplate = document.querySelector("[data-review-template]");
   const reviewElement = reviewTemplate.content.cloneNode(true).children[0];
 
@@ -37,14 +37,20 @@ function displayReview(review) {
   reviewText.textContent = review.text;
   reviewRating.textContent = review.rating + "/5";
 
+  const deleteButton = reviewElement.querySelector(".review-delete-btn");
+  deleteButton.addEventListener("click", () => {
+    reviews.splice(index, 1);
+    renderReviews();
+  });
+
   reviewsElement.appendChild(reviewElement);
 }
 
 function renderReviews() {
   reviewsElement.innerHTML = "";
 
-  reviews.forEach((review) => {
-    displayReview(review);
+  reviews.forEach((review, index) => {
+    displayReview(review, index);
   });
 }
 
