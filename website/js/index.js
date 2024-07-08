@@ -17,14 +17,16 @@ form.addEventListener("submit", (event) => {
 
   form.reset();
 
-  renderReviews();
+  addReviewToDOM(newReview, reviews.length - 1);
+  updateAverageRating();
 });
 
 const reviewsElement = document.querySelector(".reviews");
 
-function displayReview(review, index) {
+function addReviewToDOM(review, index) {
   const reviewTemplate = document.querySelector("[data-review-template]");
   const reviewElement = reviewTemplate.content.cloneNode(true).children[0];
+  reviewElement.dataset.index = index;
 
   const reviewText = reviewElement.querySelector(".review-text");
   const reviewRating = reviewElement.querySelector(".review-rating");
@@ -35,36 +37,42 @@ function displayReview(review, index) {
   const deleteButton = reviewElement.querySelector(".review-delete-btn");
   deleteButton.addEventListener("click", () => {
     reviews.splice(index, 1);
-
     localStorage.setItem("reviews", JSON.stringify(reviews));
 
-    renderReviews();
+    reviewElement.remove();
+
+    updateAverageRating();
   });
 
   reviewsElement.appendChild(reviewElement);
 }
 
-function renderReviews() {
-  reviewsElement.innerHTML = "";
-
-  reviews = JSON.parse(localStorage.getItem("reviews")) || [];
-
-  let reviewsRatingSum = 0;
-
-  reviews?.forEach((review, index) => {
-    reviewsRatingSum += parseInt(review.rating);
-    displayReview(review, index);
-  });
-
+function updateAverageRating() {
   const showAverageRatingElement = document.querySelector(
     ".show-average-rating"
   );
+  let reviewsRatingSum = 0;
+
+  reviews.forEach((review) => {
+    reviewsRatingSum += parseInt(review.rating);
+  });
+
   if (reviews.length > 0) {
     const showAverageRating = (reviewsRatingSum / reviews.length).toFixed(2);
     showAverageRatingElement.textContent = "Rating: " + showAverageRating;
   } else {
     showAverageRatingElement.textContent = "No ratings yet...";
   }
+}
+
+function renderReviews() {
+  reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+
+  reviews?.forEach((review, index) => {
+    addReviewToDOM(review, index);
+  });
+
+  updateAverageRating();
 }
 
 renderReviews();
