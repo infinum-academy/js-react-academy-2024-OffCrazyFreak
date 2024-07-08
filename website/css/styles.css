@@ -56,6 +56,10 @@ h2 {
 }
 
 .show-text {
+  font-size: 1.125em;
+}
+
+.show-text {
   padding: 2em;
 
   background-color: whitesmoke;

@@ -1,3 +1,5 @@
+let reviews = [];
+
 const form = document.querySelector(".reviews-form");
 form.addEventListener("submit", (event) => {
   event.preventDefault(); // Prevent the form from submitting in the traditional way
@@ -50,7 +52,7 @@ function renderReviews() {
   let reviewsRatingSum = 0;
 
   reviews?.forEach((review, index) => {
-    reviewsRatingSum += +review.rating;
+    reviewsRatingSum += parseInt(review.rating);
     displayReview(review, index);
   });
 
@@ -58,13 +60,11 @@ function renderReviews() {
     ".show-average-rating"
   );
   if (reviews.length > 0) {
-    const showAverageRating = reviewsRatingSum / reviews.length;
+    const showAverageRating = (reviewsRatingSum / reviews.length).toFixed(2);
     showAverageRatingElement.textContent = "Rating: " + showAverageRating;
   } else {
     showAverageRatingElement.textContent = "No ratings yet...";
   }
 }
-
-let reviews = [];
 
 renderReviews();
