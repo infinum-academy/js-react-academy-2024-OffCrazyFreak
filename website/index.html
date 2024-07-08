@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="revisit-after" content="10 days" />
+
+    <meta name="author" content="BEST Zagreb IT WG" />
+    <meta name="copyright" content="BEST Zagreb" />
+
+    <link rel="icon" href="./favicon.ico" />
+
+    <title>TV shows APP</title>
+
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="js/index.js" defer></script>
+  </head>
+  <body>
+    <h1 class="app-name">TV shows APP</h1>
+
+    <div class="show-container">
+      <img
+        src="./img/shutter-island.jpg"
+        alt="Show thumbnail"
+        class="show-thumbnail"
+      />
+
+      <div class="show-text">
+        <h2 class="show-title">Shutter Island</h2>
+        <p class="show-desc">
+          Teddy Daniels and Chuck Aule, two US marshals, are sent to an asylum
+          on a remote island in order to investigate the disappearance of a
+          patient, where Teddy uncovers a shocking truth about the place.
+        </p>
+
+        <h2 class="show-average-rating"></h2>
+      </div>
+    </div>
+
+    <h2 class="reviews-form-title">Reviews</h2>
+
+    <div class="reviews-container">
+      <form class="reviews-form">
+        <textarea
+          class="review-text-input"
+          placeholder="Add review..."
+          rows="5"
+          required
+        ></textarea>
+
+        <input
+          type="number"
+          class="review-rating-input"
+          min="1"
+          max="5"
+          step="1"
+          placeholder="Add rating (1-5)..."
+          required
+        />
+
+        <button type="submit" class="review-post-btn">Post</button>
+      </form>
+
+      <template data-review-template>
+        <div class="review-container">
+          <p class="review-text"></p>
+          <p class="review-rating"></p>
+
+          <button class="review-delete-btn">Delete</button>
+        </div>
+      </template>
+      <div class="reviews"></div>
+    </div>
+  </body>
+</html>
