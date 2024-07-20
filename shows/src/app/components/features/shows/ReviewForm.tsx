@@ -19,7 +19,7 @@ interface ReviewFormProps {
 
 export default function ReviewForm({ reviews, setReviews }: ReviewFormProps) {
   const [formData, setFormData] = useState<review>({
-    text: "",
+    comment: "",
     rating: null,
   });
 
@@ -55,7 +55,7 @@ export default function ReviewForm({ reviews, setReviews }: ReviewFormProps) {
     localStorage.setItem("reviews", JSON.stringify(newReviews));
     setReviews(newReviews);
 
-    setFormData({ text: "", rating: null });
+    setFormData({ comment: "", rating: null });
   }
 
   return (
@@ -64,8 +64,8 @@ export default function ReviewForm({ reviews, setReviews }: ReviewFormProps) {
         <FormControl isRequired>
           <FormLabel>Review</FormLabel>
           <Textarea
-            name="text"
-            value={formData.text}
+            name="comment"
+            value={formData.comment}
             onChange={handleChange}
             placeholder="Add review..."
             rows={5}
@@ -98,6 +98,7 @@ export default function ReviewForm({ reviews, setReviews }: ReviewFormProps) {
           size={"lg"}
           my={"0.5em"}
           px={"2em"}
+          type="submit"
           onClick={submitForm}
         >
           Post

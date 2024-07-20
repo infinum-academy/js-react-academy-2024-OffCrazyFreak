@@ -1,4 +1,4 @@
 interface review {
-  text: string;
+  comment: string;
   rating: number | null;
 }

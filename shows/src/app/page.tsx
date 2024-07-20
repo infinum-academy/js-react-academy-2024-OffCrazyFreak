@@ -3,13 +3,24 @@
 import { useEffect, useState } from "react";
 import { Container, Heading } from "@chakra-ui/react";
 
-import ShowDetails from "./components/ShowDetails";
-import ReviewForm from "./components/ReviewForm";
-import Reviews from "./components/Reviews";
+import ShowDetails from "./components/features/shows/ShowDetails";
+import ShowReviewSection from "./components/features/shows/ShowReviewSection";
 
 export default function Home() {
   const [reviews, setReviews] = useState<review[]>([]);
   const [averageRating, setAverageRating] = useState<number | undefined>();
+
+  function fetchReviews() {
+    const storedReviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+    setReviews(storedReviews);
+  }
+
+  function removeReview(index: number) {
+    const newReviews = reviews.filter((_, i) => i !== index);
+
+    setReviews(newReviews);
+    localStorage.setItem("reviews", JSON.stringify(newReviews));
+  }
 
   useEffect(() => {
     let reviewsRatingSum = 0;
@@ -24,8 +35,7 @@ export default function Home() {
   }, [reviews]);
 
   useEffect(() => {
-    const storedReviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-    setReviews(storedReviews);
+    fetchReviews();
   }, []);
 
   return (
@@ -42,9 +52,11 @@ export default function Home() {
           averageRating={averageRating}
         />
 
-        <ReviewForm reviews={reviews} setReviews={setReviews} />
-
-        <Reviews reviews={reviews} />
+        <ShowReviewSection
+          reviews={reviews}
+          setReviews={setReviews}
+          removeReview={removeReview}
+        />
       </Container>
     </main>
   );
