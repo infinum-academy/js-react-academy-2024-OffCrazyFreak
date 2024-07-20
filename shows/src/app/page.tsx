@@ -22,8 +22,6 @@ import {
   Heading,
   Button,
 } from "@chakra-ui/react";
-import { Fascinate } from "next/font/google";
-import { DropArgument } from "net";
 
 interface formData {
   text: string;
@@ -36,7 +34,6 @@ export default function Home() {
     rating: null,
   });
   const [reviews, setReviews] = useState<formData[]>([]);
-  const [disablePostButton, setDisablePostButton] = useState<boolean>(true);
 
   function handleChange(e: any) {
     const { name, value } = e.target;
@@ -147,7 +144,6 @@ export default function Home() {
               my={"0.5em"}
               px={"2em"}
               onClick={submitForm}
-              disabled={disablePostButton}
             >
               Post
             </Button>
